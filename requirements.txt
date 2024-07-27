@@ -1,0 +1,6 @@
+SQLAlchemy
+psycopg2
+playwright
+asyncio
+beautifulsoup4
+lxml
