@@ -1,9 +1,7 @@
-# repository.py
-
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from models import RedditPost
-from database import RedditPostDB
+from database.models import RedditPost
+from database.database import RedditPostDB
 
 class RedditPostRepository:
     def __init__(self, session: Session):
@@ -75,6 +73,19 @@ class RedditPostRepository:
         return False
 
     def get_unrated_posts(self) -> List[RedditPost]:
+        db_posts = self.session.query(RedditPostDB).filter(RedditPostDB.rating == None).all()
+        return [
+            RedditPost(
+                id=post.id,
+                headline=post.headline,
+                content=post.content,
+                url=post.url,
+                created_at=post.created_at,
+                rating=post.rating,
+                llm_evaluation=post.llm_evaluation
+            ) for post in db_posts
+        ]
+    def get_unevaluated_posts(self) -> List[RedditPost]:
         db_posts = self.session.query(RedditPostDB).filter(RedditPostDB.rating == None).all()
         return [
             RedditPost(

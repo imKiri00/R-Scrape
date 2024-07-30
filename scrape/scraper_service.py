@@ -1,12 +1,10 @@
-# scraper_service.py
-
 from datetime import datetime
 from playwright.async_api import Page, Browser
 from bs4 import BeautifulSoup
 import re
 from lxml import etree
-from models import RedditPost
-from repository import RedditPostRepository
+from database.models import RedditPost
+from database.repository import RedditPostRepository
 import asyncio
 
 MAX_INSTANCES = 5  # 1 main + 4 additional
