@@ -4,3 +4,4 @@ playwright
 asyncio
 beautifulsoup4
 lxml
+groq
