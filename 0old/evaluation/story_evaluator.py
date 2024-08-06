@@ -1,5 +1,5 @@
 import groq
-from shared.database.models import RedditPost
+from database.models import RedditPost
 
 class StoryEvaluator:
     def __init__(self, api_key):
