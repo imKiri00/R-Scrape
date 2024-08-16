@@ -31,12 +31,14 @@ R-Scrape/
 ## Dependencies
 
 ```
-- playwright==1.46.0
-- asyncpg
-- sqlalchemy[asyncio]
-- psycopg2-binary
-- beautifulsoup4
-- lxml
+streamlit==1.37.1
+pandas==2.2.2
+requests==2.32.3
+Flask==3.0.3
+SQLAlchemy==2.0.32
+playwright==1.45.1
+beautifulsoup4==4.12.3
+psycopg2-binary==2.9.9
 ```
 
 ## Usage
