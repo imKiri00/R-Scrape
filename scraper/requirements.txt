@@ -1,7 +1,0 @@
-sqlalchemy
-psycopg2-binary
-python-dotenv
-playwright
-beautifulsoup4
-lxml
-flask

@@ -1,7 +1,0 @@
-SQLAlchemy
-psycopg2-binary
-playwright
-asyncio
-beautifulsoup4
-lxml
-groq

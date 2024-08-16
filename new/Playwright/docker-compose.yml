@@ -1,0 +1,12 @@
+version: '3'
+services:
+  scraper:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+    network_mode: host
+    command: python3 /home/user/app/main.py

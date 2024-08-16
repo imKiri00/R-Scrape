@@ -3,9 +3,9 @@ from playwright.async_api import Page, Browser
 from bs4 import BeautifulSoup
 import re
 from lxml import etree
-from database.models import RedditPost
-from database.repository import RedditPostRepository
 import asyncio
+from database import RedditPost
+from repository import RedditPostRepository
 
 MAX_INSTANCES = 5  # 1 main + 4 additional
 
@@ -79,11 +79,12 @@ class RedditScraperService:
                 post_text = re.sub(r'\s+', ' ', post_text).strip()
 
                 post = RedditPost(
-                    id=None,
                     headline=headline_text,
                     content=post_text,
                     url=post_href,
-                    created_at=datetime.now()
+                    created_at=datetime.now(),
+                    rating=None,
+                    llm_evaluation=None
                 )
                 self.repository.add(post)
 
