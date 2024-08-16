@@ -86,10 +86,12 @@ class RedditScraperService:
                     rating=None,
                     llm_evaluation=None
                 )
-                self.repository.add(post)
+                await self.repository.add(post)
+                await self.repository.commit()  # Commit the changes to the database
 
                 print(f"Post {post_number} Headline: {headline_text}")
                 print(f"Post {post_number} Content: {post_text[:500]}...")
+                print(f"Post {post_number} saved to database.")
 
                 asyncio.create_task(self.close_page_after_delay(post_page, post_number, 5))
 

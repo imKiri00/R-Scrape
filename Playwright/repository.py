@@ -8,11 +8,13 @@ class RedditPostRepository:
 
     async def add(self, post: RedditPost):
         self.session.add(post)
+
+    async def commit(self):
         await self.session.commit()
+
+    async def refresh(self, post: RedditPost):
         await self.session.refresh(post)
-        return post
 
     async def get_by_id(self, post_id: int):
         result = await self.session.execute(select(RedditPost).filter(RedditPost.id == post_id))
         return result.scalar_one_or_none()
-
