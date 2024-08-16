@@ -14,7 +14,7 @@ R-Scrape/
 │   ├── repository.py
 │   ├── requirements.txt
 │   └── service.py
-└── Ui/
+└── ui/
     ├── app.py
     ├── database_view.py
     └── docker_management.py
