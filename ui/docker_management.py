@@ -26,6 +26,24 @@ def show():
             terminal_output.code('\n'.join(output[-20:]))  # Show last 20 lines
             time.sleep(0.1)
 
+    def run_xhost_command():
+        try:
+            # Check if docker is already in the xhost list
+            check_process = subprocess.run(["xhost"], capture_output=True, text=True, check=True)
+            if "LOCAL:" in check_process.stdout:
+                st.info("xhost +local:docker is already set.")
+                return
+
+            # If not set, run the command
+            subprocess.run(["xhost", "+local:docker"], check=True)
+            st.success("xhost +local:docker command executed successfully.")
+        except subprocess.CalledProcessError as e:
+            st.error(f"Error running xhost command: {e}")
+        except FileNotFoundError:
+            st.error("xhost command not found. Make sure X11 is installed and configured.")
+
+
+
     def run_docker_compose_command(command):
         try:
             original_dir = os.getcwd()
@@ -63,6 +81,7 @@ def show():
             st.error(f"Error running docker-compose {command[1]}: {str(e)}")
 
     if st.button("Run docker-compose"):
+        run_xhost_command()
         run_docker_compose_command(["docker-compose", "up", "-d"])
     
     if st.button("Stop docker-compose"):
