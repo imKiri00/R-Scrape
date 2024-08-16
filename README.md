@@ -30,12 +30,14 @@ R-Scrape/
 
 ## Dependencies
 
+```
 - playwright==1.46.0
 - asyncpg
 - sqlalchemy[asyncio]
 - psycopg2-binary
 - beautifulsoup4
 - lxml
+```
 
 ## Usage
 
@@ -49,7 +51,8 @@ The main script (`Playwright/main.py`) demonstrates how to use the Reddit scrape
 ## User Interface
 
 The project includes a user interface for viewing and managing the scraped data. To run the UI:
+Go to root folder and run the following:
 
-from root run the following
-
+```
 streamlit run ui/app.py
+```
