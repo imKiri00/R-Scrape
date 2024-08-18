@@ -1,0 +1,21 @@
+llama:
+  model: "llama-3.1-7b"
+  # Add any other Llama-specific configurations
+
+ollama:
+  model: "llama2"
+  endpoint: "http://localhost:11434"
+  # Add any other Ollama-specific configurations
+
+groq:
+  api_key: "YOUR_GROQ_API_KEY"
+  model: "llama2-70b-4096"
+  # Add any other Groq-specific configurations
+
+database:
+  # Add your database connection details here
+  host: "localhost"
+  port: 5432
+  name: "reddit_scraper"
+  user: "kiri"
+  password: "1234"

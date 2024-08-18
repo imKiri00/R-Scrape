@@ -1,0 +1,8 @@
+pyyaml
+psycopg2-binary
+torch
+transformers
+requests
+groq
+streamlit
+docker
